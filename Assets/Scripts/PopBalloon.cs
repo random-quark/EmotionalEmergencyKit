@@ -20,6 +20,14 @@ public class PopBalloon : MonoBehaviour {
         if (Input.GetButtonDown("Restart")){
             reloadScene();
         }
+        else if (Input.GetButtonDown("LoadScene1")){
+            SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(0).name);
+        }
+        else if (Input.GetButtonDown("LoadScene2"))
+        {
+            SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(1).name);
+        }
+
 	}
 
 	void OnCollisionEnter(Collision collision)

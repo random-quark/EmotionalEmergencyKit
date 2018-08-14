@@ -14,6 +14,7 @@ public class entireWord : MonoBehaviour
     int noOfPumps;
     [SerializeField] AudioSource pumpAudio;
     int maxPumps = 6;
+    bool allowOnce = true;
 
     // Use this for initialization
     void Start()
@@ -27,9 +28,14 @@ public class entireWord : MonoBehaviour
     //// Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("OpenGate") && rb)
+    }
+
+	private void FixedUpdate()
+	{
+        if (Input.GetButtonDown("OpenGate") && rb && allowOnce)
         {
             Invoke("sendWord", 0.7f);
+            allowOnce = false;
         }
         else if (Input.GetButton("Pump")) //revert to GetButton, when done
         {
@@ -39,11 +45,12 @@ public class entireWord : MonoBehaviour
                 pumpAudio.Play();
                 noOfPumps++;
             }
-            if (pumpIncrement < Mathf.PI + 0.6){
-                pumpPoint = Mathf.Sin(pumpIncrement)/80f;
-                transform.localScale += new Vector3(pumpPoint,pumpPoint,pumpPoint);
+            if (pumpIncrement < Mathf.PI + 0.6)
+            {
+                pumpPoint = Mathf.Sin(pumpIncrement) / 80f;
+                transform.localScale += new Vector3(pumpPoint, pumpPoint, pumpPoint);
                 pumpIncrement += 0.1f;
-                if (noOfPumps==maxPumps)
+                if (noOfPumps == maxPumps)
                 {
                     foreach (Letter letter in letters)
                     {
@@ -54,11 +61,12 @@ public class entireWord : MonoBehaviour
                 }
             }
         }
-    }
 
-    void sendWord()
+	}
+
+	void sendWord()
     {
-        rb.AddForce(Random.Range(900, 1250), 300, 0);
+        rb.AddForce(Random.Range(600, 1000), 300, 0);
         rb.useGravity = true;
     }
 
