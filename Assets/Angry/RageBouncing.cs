@@ -44,6 +44,7 @@ public class RageBouncing : MonoBehaviour
 
     void StartHoover() {
         GetComponent<Hoover>().StartHoover();
+        GameObject.Find("RightWall").GetComponent<Lift>().LiftUp();
     }
 
 

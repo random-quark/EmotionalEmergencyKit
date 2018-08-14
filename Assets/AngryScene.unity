@@ -926,6 +926,7 @@ GameObject:
   - component: {fileID: 1975743222}
   - component: {fileID: 1975743221}
   - component: {fileID: 1975743225}
+  - component: {fileID: 1975743226}
   m_Layer: 0
   m_Name: RightWall
   m_TagString: Untagged
@@ -1018,6 +1019,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1975743226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1975743220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66ed9e64ac8854b3c94fc15783bc73d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2078870722
 GameObject:
   m_ObjectHideFlags: 0
