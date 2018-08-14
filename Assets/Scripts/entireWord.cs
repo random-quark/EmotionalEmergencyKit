@@ -13,6 +13,7 @@ public class entireWord : MonoBehaviour
     public float pumpPoint;
     int noOfPumps;
     [SerializeField] AudioSource pumpAudio;
+    int maxPumps = 6;
 
     // Use this for initialization
     void Start()
@@ -42,7 +43,7 @@ public class entireWord : MonoBehaviour
                 pumpPoint = Mathf.Sin(pumpIncrement)/80f;
                 transform.localScale += new Vector3(pumpPoint,pumpPoint,pumpPoint);
                 pumpIncrement += 0.1f;
-                if (noOfPumps==3)
+                if (noOfPumps==maxPumps)
                 {
                     foreach (Letter letter in letters)
                     {
