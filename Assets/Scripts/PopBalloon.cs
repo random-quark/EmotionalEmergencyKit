@@ -16,18 +16,6 @@ public class PopBalloon : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (totalCollisions == 5) Invoke("reloadScene", 4);
-
-        if (Input.GetButtonDown("Restart")){
-            reloadScene();
-        }
-        else if (Input.GetButtonDown("LoadScene1")){
-            SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(0).name);
-        }
-        else if (Input.GetButtonDown("LoadScene2"))
-        {
-            SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(1).name);
-        }
-
 	}
 
 	void OnCollisionEnter(Collision collision)
