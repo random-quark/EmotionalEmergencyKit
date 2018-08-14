@@ -8,11 +8,12 @@ public class Gate : MonoBehaviour {
     bool gateActive = false;
     float sinPoint = 0;
     [SerializeField] Animator animator;
+    [SerializeField] float speed = 0.5f;
 
 	// Use this for initialization
 	void Start () {
         animator.enabled = false;
-        animator.speed = 0.5f;
+        animator.speed = speed;
 	}
 	
 	// Update is called once per frame
