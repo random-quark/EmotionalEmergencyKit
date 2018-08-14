@@ -8,3 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/fantastic.unity
     guid: a0340287ff86b41fe9103a2598fa1ebd
+  - enabled: 1
+    path: Assets/AngryScene.unity
+    guid: 34a727303e18d43e5bcb63d91c5f557a
+  m_configObjects: {}
