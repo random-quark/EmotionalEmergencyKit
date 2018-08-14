@@ -1,0 +1,2 @@
+# EmotionalEmergencyKit
+Goldsmiths library project
