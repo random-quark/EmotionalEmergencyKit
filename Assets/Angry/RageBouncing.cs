@@ -8,11 +8,16 @@ public class RageBouncing : MonoBehaviour
     bool landed = false;
     Rigidbody rb;
 
+    AudioSource audioSource;
+    [SerializeField] AudioClip roar;
+
     float lastShakeTime;
 
     public Shake cameraShake;
 
     int fireDirection = -1;
+
+    int roarCount = 0;
 
     [SerializeField] float entryTime = 1;
 
@@ -20,6 +25,7 @@ public class RageBouncing : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -63,6 +69,11 @@ public class RageBouncing : MonoBehaviour
 
     IEnumerator JumpAround() {
         while(true) {
+            if (roarCount <= 2) {
+                audioSource.PlayOneShot(roar);
+                roarCount++;
+            }
+
             if (fireDirection > 0) {
                 rb.AddForce(new Vector3(1500, 500, 0));
                 fireDirection = -1;
