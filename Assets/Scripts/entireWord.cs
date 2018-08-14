@@ -54,17 +54,11 @@ public class entireWord : MonoBehaviour
                 }
             }
         }
-        else if (Input.GetButtonDown("Float")){
-            foreach (Letter letter in letters)
-            {
-                //letter.setState(true);
-            }
-        }
     }
 
     void sendWord()
     {
-        rb.AddForce(1000, 300, 0);
+        rb.AddForce(Random.Range(900, 1250), 300, 0);
         rb.useGravity = true;
     }
 
