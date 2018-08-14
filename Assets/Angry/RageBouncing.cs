@@ -6,6 +6,7 @@ public class RageBouncing : MonoBehaviour
 {
     Animator animator;
     bool landed = false;
+    bool canJump = true;
     Rigidbody rb;
 
     AudioSource audioSource;
@@ -34,6 +35,10 @@ public class RageBouncing : MonoBehaviour
         {
             Invoke("SendWord", entryTime);
         }
+
+        if (Input.GetKeyDown(KeyCode.H)) {
+            canJump = false;
+        }
     }
 
 
@@ -51,9 +56,7 @@ public class RageBouncing : MonoBehaviour
             return;
         if (coll.gameObject.name == "Floor" || coll.gameObject.name == "RightWall")
         {
-            print("entered coll");
             Invoke("RunJumpAroundAfterDelay", 2);
-            //StartCoroutine("Jitter");
             landed = true;
         }
 
@@ -69,7 +72,8 @@ public class RageBouncing : MonoBehaviour
 
     IEnumerator JumpAround() {
         while(true) {
-            if (roarCount <= 2) {
+            if (!canJump) break;
+            if (roarCount < 2) {
                 audioSource.PlayOneShot(roar);
                 roarCount++;
             }

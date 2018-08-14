@@ -25,7 +25,7 @@ public class PopBalloon : MonoBehaviour {
         }
         else if (Input.GetButtonDown("LoadScene2"))
         {
-            SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(1).name);
+            SceneManager.LoadScene("AngryScene");
         }
 
 	}
