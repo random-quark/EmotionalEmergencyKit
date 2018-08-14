@@ -38,13 +38,18 @@ public class RageBouncing : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H)) {
             canJump = false;
+            Invoke("StartHoover", 3f);
         }
+    }
+
+    void StartHoover() {
+        GetComponent<Hoover>().StartHoover();
     }
 
 
     void OnCollisionEnter(Collision coll)
     {
-        float timeSinceShake = Time.time - lastShakeTime;    
+        float timeSinceShake = Time.time - lastShakeTime;
         if (CheckWallCollision(coll) && timeSinceShake > 1)
         {
             cameraShake.DoShake();
@@ -59,8 +64,6 @@ public class RageBouncing : MonoBehaviour
             Invoke("RunJumpAroundAfterDelay", 2);
             landed = true;
         }
-
-
     }
 
     bool CheckWallCollision(Collision coll) {
@@ -68,7 +71,6 @@ public class RageBouncing : MonoBehaviour
         bool result = walls.Contains(coll.gameObject.name);
         return result;
     }
-
 
     IEnumerator JumpAround() {
         while(true) {
