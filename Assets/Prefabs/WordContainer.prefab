@@ -285,3 +285,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 140854368f0774a8eb2f9afcbc67e6fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hooverSpeedCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  totalHooverForce: 100
+  counter: 0
+  hoover: {fileID: 0}
+  forceModifier: 0
+  force: 0
