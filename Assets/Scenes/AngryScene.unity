@@ -761,6 +761,16 @@ Prefab:
       propertyPath: hooverSpeedCurve.m_Curve.Array.data[2].outWeight
       value: 0.33333334
       objectReference: {fileID: 0}
+    - target: {fileID: 95996891379577386, guid: 3e94ffa07702e47cfaa726713cb6fc68,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54336158810484610, guid: 3e94ffa07702e47cfaa726713cb6fc68,
+        type: 2}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e94ffa07702e47cfaa726713cb6fc68, type: 2}
   m_IsPrefabAsset: 0
@@ -1161,7 +1171,6 @@ GameObject:
   - component: {fileID: 2143355211}
   - component: {fileID: 2143355210}
   - component: {fileID: 2143355209}
-  - component: {fileID: 2143355208}
   - component: {fileID: 2143355207}
   - component: {fileID: 2143355206}
   m_Layer: 0
@@ -1203,17 +1212,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2143355208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2143355205}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 356820f1441b940b485a7607345cb464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!23 &2143355209
 MeshRenderer:
   m_ObjectHideFlags: 0
