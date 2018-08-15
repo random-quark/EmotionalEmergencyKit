@@ -6,7 +6,7 @@ public class RageBouncing : MonoBehaviour
 {
     Animator animator;
     bool landed = false;
-    bool canJump = true;
+    bool jumpAndShake = true;
     Rigidbody rb;
 
     AudioSource audioSource;
@@ -37,7 +37,7 @@ public class RageBouncing : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.H)) {
-            canJump = false;
+            jumpAndShake = false;
             Invoke("StartHoover", 3f);
         }
     }
@@ -51,7 +51,7 @@ public class RageBouncing : MonoBehaviour
     void OnCollisionEnter(Collision coll)
     {
         float timeSinceShake = Time.time - lastShakeTime;
-        if (CheckWallCollision(coll) && timeSinceShake > 1)
+        if (jumpAndShake && CheckWallCollision(coll) && timeSinceShake > 1)
         {
             cameraShake.DoShake();
             lastShakeTime = Time.time;
@@ -75,7 +75,7 @@ public class RageBouncing : MonoBehaviour
 
     IEnumerator JumpAround() {
         while(true) {
-            if (!canJump) break;
+            if (!jumpAndShake) break;
             if (roarCount < 2) {
                 audioSource.PlayOneShot(roar);
                 roarCount++;
