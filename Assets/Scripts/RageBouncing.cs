@@ -38,8 +38,13 @@ public class RageBouncing : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.H)) {
             jumpAndShake = false;
-            Invoke("StartHoover", 3f);
+            StartHoover();
+            Invoke("StartSuck", 3f);
         }
+    }
+
+    void StartSuck() {
+        GetComponent<Hoover>().StartSuck();
     }
 
     void StartHoover() {

@@ -16,7 +16,6 @@ public class entireWord : MonoBehaviour
     int maxPumps = 6;
     bool allowOnce = true;
 
-    // Use this for initialization
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -25,7 +24,6 @@ public class entireWord : MonoBehaviour
         noOfPumps = 0;
     }
 
-    //// Update is called once per frame
     void Update()
     {
     }
@@ -37,7 +35,7 @@ public class entireWord : MonoBehaviour
             Invoke("sendWord", 0.7f);
             allowOnce = false;
         }
-        else if (Input.GetButton("Pump")) //revert to GetButton, when done
+        else if (Input.GetButton("Pump"))
         {
             if (Input.GetButtonDown("Pump"))
             {
@@ -55,13 +53,11 @@ public class entireWord : MonoBehaviour
                     foreach (Letter letter in letters)
                     {
                         Destroy(GetComponent<Rigidbody>());
-                        //letter.allowFloat = true;
                         letter.initRigidBody();
                     }
                 }
             }
         }
-
 	}
 
 	void sendWord()
@@ -69,8 +65,4 @@ public class entireWord : MonoBehaviour
         rb.AddForce(Random.Range(600, 1000), 300, 0);
         rb.useGravity = true;
     }
-
-    //void turnOffTriggerInWall(Collider col){
-    //    col.gameObject.GetComponent<Collider>().isTrigger = false;
-    //}
 }

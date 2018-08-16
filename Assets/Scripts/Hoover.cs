@@ -26,9 +26,13 @@ public class Hoover : MonoBehaviour {
     }
 
     public void StartHoover () {
-        StartCoroutine("Suck");
+        
         audioSource.clip = hoover;
         audioSource.Play();
+    }
+
+    public void StartSuck() {
+        StartCoroutine("Suck");
     }
 
     IEnumerator Suck() {
@@ -37,13 +41,8 @@ public class Hoover : MonoBehaviour {
             float distanceToExit = GameObject.Find("RightWall").transform.position.x - gameObject.transform.position.x;
             float progressToExit = (floorWidth-distanceToExit) / floorWidth;
             if (progressToExit > 1) break;
-            print("width " + floorWidth);
-            print("dist to exit" + distanceToExit);
-            print("progress "+progressToExit);
             forceModifier = hooverSpeedCurve.Evaluate(progressToExit);
-            print("force mod " + forceModifier);
             force = totalHooverForce * forceModifier;
-            print("force" + force);
             rb.AddForce(force, 0, 0);
             yield return new WaitForSeconds(0.1f);
         }
