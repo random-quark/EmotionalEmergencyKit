@@ -36,6 +36,7 @@ public class Hoover : MonoBehaviour {
             float floorWidth = GameObject.Find("Floor").transform.localScale.x;
             float distanceToExit = GameObject.Find("RightWall").transform.position.x - gameObject.transform.position.x;
             float progressToExit = (floorWidth-distanceToExit) / floorWidth;
+            if (progressToExit > 1) break;
             print("width " + floorWidth);
             print("dist to exit" + distanceToExit);
             print("progress "+progressToExit);
